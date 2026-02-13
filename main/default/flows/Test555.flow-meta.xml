@@ -1,5 +1,168 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Source:Start,0,0|Target:oPPP55,0,0</description>
+        <name>h_56e1f653c331a21667569fac1f0d6561_PostPreLog</name>
+        <label>Log After: Start, Before: oPPP55</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>TritonFlow</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>oPPP55</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>category</name>
+            <value>
+                <stringValue>Flow</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>type</name>
+            <value>
+                <stringValue>t</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>area</name>
+            <value>
+                <stringValue>t</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>summary</name>
+            <value>
+                <stringValue>Log After: Start, Before: oPPP55</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>details</name>
+            <value>
+                <stringValue>Executed: Log After: Start, Before: oPPP55</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>interviewGUID</name>
+            <value>
+                <stringValue>{!$Flow.InterviewGuid}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>flowApiName</name>
+            <value>
+                <stringValue>Test555-2</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>operation</name>
+            <value>
+                <stringValue>Start</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>level</name>
+            <value>
+                <stringValue>INFO</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>stacktrace</name>
+            <value>
+                <stringValue>{!h_b5d534e8e207b567a79b92e43489b99c_Pharos_Template}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>fullStacktrace</name>
+            <value>
+                <stringValue>{!Pharos_Full_Stacktrace}</stringValue>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>Pharos_Full_Stacktrace</assignToReference>
+            <name>fullStacktrace</name>
+        </outputParameters>
+    </actionCalls>
+    <actionCalls>
+        <description>Source:oPPP55,0,0|Target:null,0,0</description>
+        <name>h_9b8c5a0de9484f90de5e9f876fc5aefb_PostLog</name>
+        <label>Log After: oPPP55</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>TritonFlow</actionName>
+        <actionType>apex</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>category</name>
+            <value>
+                <stringValue>Flow</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>type</name>
+            <value>
+                <stringValue>t</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>area</name>
+            <value>
+                <stringValue>t</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>summary</name>
+            <value>
+                <stringValue>Log After: oPPP55</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>details</name>
+            <value>
+                <stringValue>Executed: Log After: oPPP55</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>interviewGUID</name>
+            <value>
+                <stringValue>{!$Flow.InterviewGuid}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>flowApiName</name>
+            <value>
+                <stringValue>Test555-2</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>operation</name>
+            <value>
+                <stringValue>Record Create</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>level</name>
+            <value>
+                <stringValue>DEBUG</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>stacktrace</name>
+            <value>
+                <stringValue>{!h_27a7847ca0a916eb6b384951c01b2d2d_Pharos_Template}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>fullStacktrace</name>
+            <value>
+                <stringValue>{!Pharos_Full_Stacktrace}</stringValue>
+            </value>
+        </inputParameters>
+        <outputParameters>
+            <assignToReference>Pharos_Full_Stacktrace</assignToReference>
+            <name>fullStacktrace</name>
+        </outputParameters>
+    </actionCalls>
     <apiVersion>65.0</apiVersion>
     <interviewLabel>Test555 {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Test555</label>
@@ -27,6 +190,9 @@
         <label>oPPP55</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
+        <connector>
+            <targetReference>h_9b8c5a0de9484f90de5e9f876fc5aefb_PostLog</targetReference>
+        </connector>
         <inputAssignments>
             <field>CloseDate</field>
         </inputAssignments>
@@ -43,11 +209,79 @@
         <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>oPPP55</targetReference>
+            <targetReference>h_56e1f653c331a21667569fac1f0d6561_PostPreLog</targetReference>
         </connector>
         <object>Contact</object>
         <recordTriggerType>CreateAndUpdate</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
+    <textTemplates>
+        <description>Pharos Flow Template for Log After: oPPP55</description>
+        <name>h_27a7847ca0a916eb6b384951c01b2d2d_Pharos_Template</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;p&gt;
+&lt;span style=&quot;font-weight:bold;&quot;&gt;CREATE RECORDS: &lt;/span&gt;oPPP55&lt;br&gt;
+&lt;span&gt;Create Opportunity record(s) with these field values:&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;CloseDate = null&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;Name = null&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;StageName = null&lt;/span&gt;&lt;br&gt;
+&lt;span style=&quot;font-weight:bold;&quot;&gt;Result&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;oPPP55 ({!oPPP55})&lt;/span&gt;&lt;br&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;span style=&quot;font-weight:bold;&quot;&gt;(APEX): &lt;/span&gt;h_9b8c5a0de9484f90de5e9f876fc5aefb_PostLog&lt;br&gt;
+&lt;span style=&quot;font-weight:bold;&quot;&gt;Inputs:&lt;/span&gt;&lt;br&gt;
+&lt;span style=&quot;font-weight:bold;&quot;&gt;Outputs:&lt;/span&gt;&lt;br&gt;
+&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <description>Pharos Flow Template for Log After: Start, Before: oPPP55</description>
+        <name>h_b5d534e8e207b567a79b92e43489b99c_Pharos_Template</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;style&gt;
+span,a {
+ font-size: 16px;}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;
+&lt;span&gt;&lt;img src=&quot;https://a.sfdcstatic.com/shared/images/c360-nav/mobile_logo.png&quot; alt=&quot;Salesforce logo&quot; width=&quot;40px&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size:x-large;font-weight:bold&quot;&gt;An Error Occurred with Your &quot;Test555&quot; Flow&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span&gt;You&apos;ve received this email because an error occurred while your &quot;Test555&quot; flow was running. &lt;a &gt;Debug this flow in Flow Builder.&lt;/a&gt;&lt;br&gt;&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;Error element debug (FlowActionCall).&lt;/span&gt;&lt;br&gt;&lt;span&gt;Debug: end&lt;/span&gt;&lt;br&gt;&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;a style=&quot;background-color:#0176D3;border-radius:4px;color:white;padding:.5rem 1rem;text-decoration:none&quot;&gt;Open Flow&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;br&gt;&lt;span style=&quot;font-size:x-large;font-weight:bold&quot;&gt;Flow Error Details&lt;/span&gt;&lt;br&gt;&lt;br&gt;
+&lt;p&gt;
+&lt;span style=&quot;font-weight:bold;&quot;&gt;Flow Details&lt;/span&gt;&lt;br&gt;
+&lt;br&gt;&lt;span&gt;&lt;span style=&quot;font-weight:bold;&quot;&gt;Flow API Name: &lt;/span&gt;Test555&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;&lt;span style=&quot;font-weight:bold;&quot;&gt;Type: &lt;/span&gt;Flow&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;&lt;span style=&quot;font-weight:bold;&quot;&gt;Version: &lt;/span&gt;3&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;&lt;span style=&quot;font-weight:bold;&quot;&gt;Status: &lt;/span&gt;Active&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;&lt;span style=&quot;font-weight:bold;&quot;&gt;Org: &lt;/span&gt;{!$Organization.Id} ({!$Organization.Name})&lt;/span&gt;&lt;br&gt;
+&lt;/p&gt;
+&lt;br&gt;&lt;span style=&quot;font-weight:bold;&quot;&gt;Flow Interview Details&lt;/span&gt;&lt;br&gt;
+&lt;br&gt;&lt;span&gt;&lt;span style=&quot;font-weight:bold;&quot;&gt;Interview Label: &lt;/span&gt;Test555&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;&lt;span style=&quot;font-weight:bold;&quot;&gt;Interview GUID: &lt;/span&gt;{!$Flow.InterviewGuid}&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;&lt;span style=&quot;font-weight:bold;&quot;&gt;Current User: &lt;/span&gt;{!$User.FirstName} {!$User.LastName}&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;&lt;span style=&quot;font-weight:bold;&quot;&gt;Start time: &lt;/span&gt;{!$Flow.InterviewStartTime}&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;&lt;span style=&quot;font-weight:bold;&quot;&gt;Duration: &lt;/span&gt;0&lt;/span&gt;&lt;br&gt;
+&lt;/p&gt;
+&lt;br&gt;&lt;span style=&quot;font-weight:bold;&quot;&gt;How the Interview Started&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;{!$User.FirstName} {!$User.LastName} ({!$User.Id}) started the flow interview.&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;API Version for Running the Flow: 63.0&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;Some of this flow&apos;s variables were set when the interview started.&lt;/span&gt;&lt;br&gt;
+&lt;span&gt;$Record = Contact ({!$Record})&lt;/span&gt;&lt;br&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;span style=&quot;font-weight:bold;&quot;&gt;(APEX): &lt;/span&gt;h_56e1f653c331a21667569fac1f0d6561_PostPreLog&lt;br&gt;
+&lt;span style=&quot;font-weight:bold;&quot;&gt;Inputs:&lt;/span&gt;&lt;br&gt;
+&lt;span style=&quot;font-weight:bold;&quot;&gt;Outputs:&lt;/span&gt;&lt;br&gt;
+&lt;/p&gt;</text>
+    </textTemplates>
+    <variables>
+        <description>Pharos Full Stacktrace</description>
+        <name>Pharos_Full_Stacktrace</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue> </stringValue>
+        </value>
+    </variables>
 </Flow>
